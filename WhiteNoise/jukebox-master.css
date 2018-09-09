@@ -1,0 +1,203 @@
+/* background */
+body {
+  background-image: linear-gradient(rgba(200,200,240,.8), rgba(240,240,240,.8)),
+      url("https://www.socwall.com/images/wallpapers/47014-2560x1440.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /*box-shadow: inset 0 0 0 1000px rgba(240, 240, 240,.8);*/
+}
+
+.nav-link a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-link a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.nav-link a.active {
+    background-color: #0AB8A4;
+    color: white;
+}
+
+/* Add a black background color to the top navigation */
+/*.topnav {
+    background-color: #3E3F3F;
+    overflow: hidden;
+}*/
+
+/* Style the links inside the navigation bar *//*
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}*/
+
+/* Change the color of links on hover
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+/* Add a color to the active/current link
+.topnav a.active {
+    background-color: #0AB8A4;
+    color: white;
+}*/
+
+.welcome-text {
+    text-align: center;
+    padding: 14px 16px;
+    outline: 2px black;
+}
+
+.welcome-text-top {
+   font-size: 50px;
+}
+
+/***********************
+container
+***********************/
+
+.outer-content-container {
+  width: 70%;
+  min-width: 1024px;
+  /*background-color: rgba(240, 240, 240, 0.8);
+  box-shadow: 0 0 150px 30px black;*/
+}
+
+#inner-content-container {
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.container-shadow {
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  overflow: hidden;
+  max-height: 300px;
+  align: center;
+}
+
+.content-container {
+  padding: 10px 30px;
+  color: #222;
+
+}
+
+
+/***********************
+slideshow
+***********************/
+#my-carousel {
+  overflow: hidden;
+  z-index: 10;
+}
+
+#my-carousel .carousel-control {
+  background-image: none;
+  opacity: 0.5;
+}
+
+#my-carousel .carousel-control.right:hover {
+  background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 100%);
+  opacity: 0.8;
+}
+
+#my-carousel .carousel-control.left:hover {
+  background-image: linear-gradient(to left,rgba(0,0,0,0) 0,rgba(0,0,0,.5) 100%);
+  opacity: 0.8;
+}
+
+.carousel-caption h3 {
+  font-size: 18px;
+  /*font-weight: bolder;*/
+  color: white;
+  margin: 0;
+}
+
+.caption-container {
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+.item {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    max-height: 300px;
+}
+
+
+
+/***********************
+Suggestions Box
+***********************/
+
+/* Style inputs with type="text", select elements and textareas */
+.suggestions input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+.suggestions input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+.suggestions input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.suggestions .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.suggestions fname {
+text-align: left
+}

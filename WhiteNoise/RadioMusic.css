@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* background */
+body {
+  background-image: url("pics/sunshine.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.outer-content-container {
+  width: 40%;
+  min-width: 500px;
+  background-color: rgba(245, 245, 245, 0.7);
+  box-shadow: 0 0 100px 30px white;
+}
+
+
+.icon-text-container {
+  margin: 0 auto;
+  margin-top:100px;
+  margin-bottom:100px;
+  display: inline-block;
+  background-color: rgba(245, 245, 245, 0.5);
+  padding-botton: 12px;
+}
+
+.Title{
+	margin-top:4rem;
+	text-align:center;
+	vertical-align: middle;
+	margin-botton:10rem;
+	text-shadow: 1px 1px #F7FE2E;
+}
+
+.Title h1{
+	font-size:4rem;
+}
+
+.music-name{
+	font-size: 1.7rem;
+	color: black;
+	text-align: right;
+	text-shadow: 0.5px 0.5px gray;
+	
+}

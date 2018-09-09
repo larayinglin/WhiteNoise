@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Choose the white noise you like to mix your comforting sound">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="signup.css">
+  <link rel="icon" href="music-note.png">
+  <title>JukeBox | Log In</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <header>
+  
+    <!-- add navbar (code from getbootstrap.com >> components >> navbar) -->
+    <!-- try
+      navbar-static-top
+      - creates a full-width navbar that scrolls away with the page 
+      - removes the left, right, and top border created by navbar-default
+      navbar-fixed-top
+      - creates a full-width navbar that sticks to the page
+      
+      navbar-inverse sets background to dark color scheme                        
+      -->
+      
+      <!-- <nav class="navbar navbar-inverse navbar-static-top"> -->        
+      <!-- <nav class="navbar navbar-inverse navbar-default">   --> 
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+			    </button>
+	    		<a class="navbar-brand" href="http://people.virginia.edu/~all4ax/jukebox-home.html"> JukeBox</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="RadioMusic.html">Radio Music</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="botton" aria-haspopup="true" aria-expanded="false">White Noise<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="WhiteNoiseOcean.html">Ocean</a></li>
+                <li><a href="WhiteNoiseForest.html">Forest</a></li>
+                <li><a href="WhiteNoiseCafe.html">Cafe</a></li>
+              </ul>
+            </li>
+            <li><a href="RecentStations.html">Recent Stations</a></li>
+            <li><a href="http://people.virginia.edu/~all4ax/jukebox-suggestions.html">Suggestions Box</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+
+    <form class="modal-content" name="loginform" method="POST" action="doAction.php?action=login">
+        <div class="loginimgcontainer">
+        </div>
+        <div class="logincontainer">
+            <h1>Log In</h1>
+            <hr>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+
+            <div class="clearfix">
+              <button type="reset" class="signupcancelbtn" style="color:whitesmoke;">Reset</button>
+              <button type="submit" name="signup" value="signup" class="signupbtn" style="color:whitesmoke;">Log In</button>
+            </div>
+            <br>
+            <p>Do not have an account? <a href="signup.html" style="color:dodgerblue">Sign Up</a> Here!</p>
+        </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

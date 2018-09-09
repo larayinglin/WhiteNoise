@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="WhiteNoise.css">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Choose the white noise you like to mix your comforting sound">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="music-note.png">
+  <title>JukeBox | Recent Stations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:rgba(0, 0, 0, 0.7);
+        color: gray;
+        text-align: center;
+        padding-top: 5px;
+    }
+
+  </style>
+</head>
+
+<body background="recorder.jpg" ng-app="myApp">
+
+  <header>
+    <div ng-include="'nav.php'"></div>    
+  </header>
+
+    <center>
+      <div class="outer-content-container">
+        <div class="Title" ng-controller="loginCtrl">
+          <br><br>
+          <h1 style="color:#CEF6D8;">{{ myUser }}'s Audio Stations</h1>
+          <br><br>
+        </div>
+      </div>
+    </center>
+
+
+    <div class="container" style="margin-top: 6%; margin-bottom: 6%">
+      <div class="col-md-6">
+
+          <div class="container" style="width: 90%; background-color: rgba(0, 0, 0, 0.7)">
+            <center>
+              <div ng-cloak ng-controller="RMCtrl" class="w3-card-2 w3-margin" style="max-width:400px; color: azure;">
+                <header class="w3-container w3-light-grey w3-padding-16">
+                  <h3>Radio Music</h3>
+                </header>
+                <ul class="w3-ul">
+                  <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem()" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+                </ul>
+                <div class="w3-container w3-light-grey w3-padding-16">
+                  <div class="w3-row w3-margin-top">
+                    <div class="w3-col s10">
+                      <input placeholder="Add Your Songs Here" ng-model="addMe" class="w3-input w3-border w3-padding">
+                    </div>
+                    <div class="w3-col s2">
+                      <button ng-click="addItem()" class="w3-btn w3-padding">Add</button>
+                    </div>
+                  </div>
+                  <p class="w3-text-red">{{errortext}}</p>
+                </div>
+              </div>
+            </center>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+
+          <div class="container" style="width: 90%; background-color: rgba(0, 0, 0, 0.7)">
+            <center>
+              <div ng-cloak ng-controller="WNCtrl" class="w3-card-2 w3-margin" style="max-width:400px; color: azure;">
+                <header class="w3-container w3-light-grey w3-padding-16">
+                  <h3>White Noise</h3>
+                </header>
+                <ul class="w3-ul">
+                  <li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+                </ul>
+                <div class="w3-container w3-light-grey w3-padding-16">
+                  <div class="w3-row w3-margin-top">
+                    <div class="w3-col s10">
+                      <input placeholder="Add White Noise Here" ng-model="addMe" class="w3-input w3-border w3-padding">
+                    </div>
+                    <div class="w3-col s2">
+                      <button ng-click="addItem()" class="w3-btn w3-padding">Add</button>
+                    </div>
+                  </div>
+                  <p class="w3-text-red">{{errortext}}</p>
+                </div>
+              </div>
+            </center>
+          </div>
+      </div>
+
+    </div>
+
+    <script>
+      var cookiesToSave = "";
+
+      function getCookie(){
+        var name = "MRM=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+          var c = ca[i].trim();
+          if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        var cookieContent = getCookie();
+        if (cookieContent != "") {
+          var cookieArr = cookieContent.split("+");
+          var result = new Array();
+          for (var i = 0; i < cookieArr.length - 1; i++) {
+            result[i] = cookieArr[i];
+          }
+          return result;
+        } else {
+          return [];
+        }
+      }
+
+    </script>
+
+    <script>
+      var ngApp = angular.module("myApp", []); 
+
+      ngApp.controller("loginCtrl", function($scope, $http){
+        $http.get('welcome.php')
+        .then(function(response){
+          $scope.myUser = response.data;
+        });
+      });
+      
+      ngApp.controller("RMCtrl", function($scope) {
+          $scope.products = checkCookie();
+          $scope.addItem = function () {
+              $scope.errortext = "";
+              if (!$scope.addMe) {return;}
+              if ($scope.products.indexOf($scope.addMe) == -1) {
+                  $scope.products.push($scope.addMe);
+                  $scope.setCookie();
+              } else {
+                  $scope.errortext = "The song is already in your radio music list.";
+              }
+          }
+          $scope.removeItem = function (x) {
+              $scope.errortext = "";    
+              $scope.products.splice(x, 1);
+              $scope.setCookie();
+          }
+          $scope.setCookie = function() {
+            var coo = $scope.products;
+            for (var i = 0; i < coo.length; i++)
+              cookiesToSave += coo[i] + "+";
+            var d = new Date();
+            d.setTime(d.getTime()+(7*24*60*60*1000));
+            var expires = "expires="+d.toGMTString();
+            document.cookie = "MRM=" + cookiesToSave + "; " + expires;
+            cookiesToSave = "";
+          }
+      });
+
+      ngApp.controller("WNCtrl", function($scope) {
+          $scope.products = ["Ocean", "Forest", "Cafe"];
+         
+          $scope.addItem = function () {
+              $scope.errortext = "";
+              if (!$scope.addMe) {return;}
+              if ($scope.products.indexOf($scope.addMe) == -1) {
+                  $scope.products.push($scope.addMe);
+
+              } else {
+                  $scope.errortext = "The item is already in your shopping list.";
+              }
+          }
+          $scope.removeItem = function (x) {
+              $scope.errortext = "";
+              $scope.products.splice(x, 1);
+          }
+      });
+    </script>
+
+    <footer class="footer">
+      <div class="col-md-8 text-center">
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-fb mx-1">
+              <i class="fa fa-facebook"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-tw mx-1">
+              <i class="fa fa-twitter"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-gplus mx-1">
+              <i class="fa fa-google-plus"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-li mx-1">
+              <i class="fa fa-linkedin"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-dribbble mx-1">
+              <i class="fa fa-dribbble"> </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Copyright-->
+      <div class="col-md-4">
+        <div class="footer-copyright py-3 text-center">
+          © 2018 Copyright:
+          <a href="">JukeBox</a>
+        </div>
+      </div>
+     
+    </footer> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

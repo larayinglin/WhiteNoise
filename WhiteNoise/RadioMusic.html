@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang = "en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="white_noise.js"></script>
+  <link rel="stylesheet" href="RadioMusic.css">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Choose the white noise you like to mix your comforting sound">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="music-note.png">
+  <title>JukeBox | Radio Music - Happy</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+</head>
+  
+<body ng-app="">
+
+    <style>
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border:1px solid #003300;
+        }
+      </style>
+      
+      <style>
+        table,th,td{
+          boarder: 1px, solid;
+          text-align: right;
+        }
+        table {
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+        }
+      </style>
+
+  <header>
+    <div ng-include="'nav.php'"></div>    
+  </header>
+
+    <center>
+      <div class="outer-content-container">
+        <div class="Title">
+        <br><br>
+          <h1 style="color:#61380B;"><b> Radio Music </b></h1>
+        <br><br>
+        </div>
+      </div>
+    </center>
+    
+    <!-- Main Section-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="icon-text-container">
+            <p> Enjoy your happy time!</p>
+            <img src="pics/minion.jpg" alt="Minion!" width="500">
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <!-- play list -->
+        <div class="col-md-4">
+          <div class="icon-text-container">
+		      <table>
+		        <tr>
+		          <td class="music-name"> hey! </td>
+		          <td> 
+		            <audio controls>
+		              <source src="music/hey.mp3" type="audio/mpeg">
+		            </audio>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td class="music-name"> buddy </td>
+		          <td>
+		            <audio controls>
+		              <source src="music/buddy.mp3" type="audio/mpeg">
+		            </audio>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td class="music-name"> ukulele </td>
+		          <td>
+		            <audio controls>
+		              <source src="music/ukulele.mp3" type="audio/mpeg">
+		            </audio>
+		          </td>
+		        </tr>
+		      </table>
+	        </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
